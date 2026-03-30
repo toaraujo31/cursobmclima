@@ -1,0 +1,648 @@
+# Usando o R
+
+x <- 2 + 4
+print(x)
+
+# Fundamentos de programação
+
+# Variáveis e constantes:
+
+x<-5
+print(x)
+
+x<-10
+print(x)
+
+x<-4500
+print(x)
+
+
+PI <- 3.14159
+E <- 2.71828
+print(PI)
+print(E)
+
+# Operadores aritméticos
+
+x <- 50
+y <- 17
+
+print(x + y)
+
+print(x - y)
+
+print(x * y)
+
+print(x / y)
+
+print(x %% y)
+
+print(x ^ y)
+
+# Operadores relacionais
+
+print(x == y)
+
+print(x != y)
+
+print(x > y)
+
+print(x < y)
+
+print(x >= y)
+
+print(x <= y)
+
+# Operadores lógicos
+
+
+print(x & y)
+
+print(x | y)
+
+print(!y)
+
+# Atribuindo um conjunto de dado a uma variável chamada 'z'
+
+z <- c(12,3,5,9)
+x %in% z
+y %in% z
+
+
+#Tipos e estruturas de dados
+
+# Criando um objeto do tipo POSIXct (datetime)
+data_hora_ct <- as.POSIXct("2023-04-18 14:30:00")
+
+# Verificando a classe do objeto
+class(data_hora_ct)
+
+# Acessando componentes individuais
+
+data_hora_lt$year
+
+data_hora_lt$mon
+
+data_hora_lt$mday
+
+
+
+#ESTRUTURAS DE DADOS
+
+matriz <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3)
+
+
+#Listas
+
+
+programas_saude <- list(
+  "Programa de Vacinação" = list(
+    objetivo = "Aumentar a cobertura vacinal", 
+    publico_alvo = "Crianças e idosos", 
+    numero_de_participantes = 40L, 
+    orcamento = 35.5
+  ), 
+  "Programa de Prevenção ao Tabagismo" = list(
+    objetivo = "Reduzir o número de fumantes", 
+    publico_alvo = "Adolescentes e adultos", 
+    numero_de_participantes = 60L, 
+    orcamento = 50.75
+  ), 
+  "Programa de Saúde Mental" = list(
+    objetivo = "Melhorar o acesso a serviços de saúde mental", 
+    publico_alvo = "População em geral",  
+    orcamento = 25.5
+  )
+)
+
+# Imprimindo o resultado
+print(programas_saude)
+
+
+#Exercício:Imagine que você está realizando a gestão de três programas de saúde em uma secretaria estadual. Utilizando o RStudio, escreva um script que realize as seguintes tarefas:
+
+
+
+# GESTÃO DE PROGRAMAS DE SAÚDE
+
+
+# Nome dos programas
+nome_programa1 <- "Saúde da Família"
+nome_programa2 <- "Programa Nacional de Imunizações"
+nome_programa3 <- "Saúde Mental Comunitária"
+
+# Objetivos dos programas 
+objetivo_programa1 <- "Ampliar o acesso à atenção primária em áreas rurais"
+objetivo_programa2 <- "Aumentar a cobertura vacinal da população infantil"
+objetivo_programa3 <- "Reduzir filas de espera para atendimento psicológico"
+
+# Público-alvo dos programas 
+publico_programa1 <- "População rural e comunidades isoladas"
+publico_programa2 <- "Crianças de 0 a 5 anos e idosos"
+publico_programa3 <- "Adultos com transtornos mentais leves e moderados"
+
+# Orçamento anual de cada programa 
+orcamento_programa1 <- 1250000.50   # 1.25 milhões
+orcamento_programa2 <- 2350000.75   # 2.35 milhões
+orcamento_programa3 <- 980000.00    # 980 mil
+
+# Datas de início e fim de cada programa (usando POSIXct para datas)
+# Formato: "ANO-MÊS-DIA"
+
+data_inicio1 <- as.POSIXct("2023-01-15")
+data_fim1 <- as.POSIXct("2024-12-31")
+
+data_inicio2 <- as.POSIXct("2023-03-01")
+data_fim2 <- as.POSIXct("2025-02-28")
+
+data_inicio3 <- as.POSIXct("2024-01-10")
+data_fim3 <- as.POSIXct("2024-12-20")
+
+# Data atual para verificar programas em andamento (numérico - data)
+data_atual <- as.POSIXct(Sys.Date())  
+
+
+
+# Criando uma lista principal 
+programas_saude <- list(
+  "Programa 1: Saúde da Família" = list(
+    nome = nome_programa1,
+    objetivo = objetivo_programa1,
+    publico_alvo = publico_programa1,
+    orcamento = orcamento_programa1,
+    data_inicio = data_inicio1,
+    data_fim = data_fim1,
+    status = "Em andamento"  # Será atualizado depois
+  ),
+  "Programa 2: Programa Nacional de Imunizações" = list(
+    nome = nome_programa2,
+    objetivo = objetivo_programa2,
+    publico_alvo = publico_programa2,
+    orcamento = orcamento_programa2,
+    data_inicio = data_inicio2,
+    data_fim = data_fim2,
+    status = "Em andamento"
+  ),
+  "Programa 3: Saúde Mental Comunitária" = list(
+    nome = nome_programa3,
+    objetivo = objetivo_programa3,
+    publico_alvo = publico_programa3,
+    orcamento = orcamento_programa3,
+    data_inicio = data_inicio3,
+    data_fim = data_fim3,
+    status = "Em andamento"
+  )
+)
+
+# Exibindo a estrutura da lista criada
+cat("\n=== ESTRUTURA DA LISTA DE PROGRAMAS ===\n")
+str(programas_saude, max.level = 2)
+
+
+# CALCULAR O ORÇAMENTO TOTAL DESTINADO A TODOS OS PROGRAMAS 
+
+orcamento_total <- programas_saude[[1]]$orcamento + 
+  programas_saude[[2]]$orcamento + 
+  programas_saude[[3]]$orcamento
+
+# Exibindo o resultado formatado
+cat("\n=== ORÇAMENTO TOTAL ===\n")
+cat("Orçamento total dos programas: R$", format(orcamento_total, 
+                                                big.mark = ".", 
+                                                decimal.mark = ","), "\n")
+cat("Detalhamento:\n")
+cat("  -", programas_saude[[1]]$nome, ": R$", 
+    format(programas_saude[[1]]$orcamento, big.mark = ".", decimal.mark = ","), "\n")
+cat("  -", programas_saude[[2]]$nome, ": R$", 
+    format(programas_saude[[2]]$orcamento, big.mark = ".", decimal.mark = ","), "\n")
+cat("  -", programas_saude[[3]]$nome, ": R$", 
+    format(programas_saude[[3]]$orcamento, big.mark = ".", decimal.mark = ","), "\n")
+
+
+# IDENTIFICAR O PROGRAMA COM O MAIOR ORÇAMENTO 
+
+
+if(programas_saude[[1]]$orcamento > programas_saude[[2]]$orcamento & 
+   programas_saude[[1]]$orcamento > programas_saude[[3]]$orcamento) {
+  maior_orcamento_nome <- programas_saude[[1]]$nome
+  maior_orcamento_valor <- programas_saude[[1]]$orcamento
+} else if(programas_saude[[2]]$orcamento > programas_saude[[1]]$orcamento & 
+          programas_saude[[2]]$orcamento > programas_saude[[3]]$orcamento) {
+  maior_orcamento_nome <- programas_saude[[2]]$nome
+  maior_orcamento_valor <- programas_saude[[2]]$orcamento
+} else {
+  maior_orcamento_nome <- programas_saude[[3]]$nome
+  maior_orcamento_valor <- programas_saude[[3]]$orcamento
+}
+
+
+
+cat("\n=== PROGRAMA COM MAIOR ORÇAMENTO ===\n")
+cat("Programa:", maior_orcamento_nome, "\n")
+cat("Orçamento: R$", format(maior_orcamento_valor, 
+                            big.mark = ".", 
+                            decimal.mark = ","), "\n")
+
+
+# LISTAR OS PROGRAMAS QUE ESTÃO EM ANDAMENTO ATUALMENTE 
+
+
+cat("\n=== PROGRAMAS EM ANDAMENTO ===\n")
+
+# Verificando programa 1
+if(data_atual >= programas_saude[[1]]$data_inicio & 
+   data_atual <= programas_saude[[1]]$data_fim) {
+  cat("✓", programas_saude[[1]]$nome, "- EM ANDAMENTO\n")
+  cat("  Período:", format(programas_saude[[1]]$data_inicio, "%d/%m/%Y"), 
+      "até", format(programas_saude[[1]]$data_fim, "%d/%m/%Y"), "\n")
+} else if(data_atual < programas_saude[[1]]$data_inicio) {
+  cat("○", programas_saude[[1]]$nome, "- NÃO INICIADO\n")
+} else {
+  cat("✗", programas_saude[[1]]$nome, "- ENCERRADO\n")
+}
+
+# Verificando programa 2
+if(data_atual >= programas_saude[[2]]$data_inicio & 
+   data_atual <= programas_saude[[2]]$data_fim) {
+  cat("✓", programas_saude[[2]]$nome, "- EM ANDAMENTO\n")
+  cat("  Período:", format(programas_saude[[2]]$data_inicio, "%d/%m/%Y"), 
+      "até", format(programas_saude[[2]]$data_fim, "%d/%m/%Y"), "\n")
+} else if(data_atual < programas_saude[[2]]$data_inicio) {
+  cat("○", programas_saude[[2]]$nome, "- NÃO INICIADO\n")
+} else {
+  cat("✗", programas_saude[[2]]$nome, "- ENCERRADO\n")
+}
+
+# Verificando programa 3
+if(data_atual >= programas_saude[[3]]$data_inicio & 
+   data_atual <= programas_saude[[3]]$data_fim) {
+  cat("✓", programas_saude[[3]]$nome, "- EM ANDAMENTO\n")
+  cat("  Período:", format(programas_saude[[3]]$data_inicio, "%d/%m/%Y"), 
+      "até", format(programas_saude[[3]]$data_fim, "%d/%m/%Y"), "\n")
+} else if(data_atual < programas_saude[[3]]$data_inicio) {
+  cat("○", programas_saude[[3]]$nome, "- NÃO INICIADO\n")
+} else {
+  cat("✗", programas_saude[[3]]$nome, "- ENCERRADO\n")
+}
+
+
+# DESAFIO: EXIBIR O PROGRAMA COM A DATA DE INÍCIO MAIS RECENTE 
+
+
+cat("\n=== DESAFIO: PROGRAMA COM DATA DE INÍCIO MAIS RECENTE ===\n")
+
+# Método 1: Usando if/else para comparação
+if(programas_saude[[1]]$data_inicio > programas_saude[[2]]$data_inicio & 
+   programas_saude[[1]]$data_inicio > programas_saude[[3]]$data_inicio) {
+  inicio_mais_recente_nome <- programas_saude[[1]]$nome
+  inicio_mais_recente_data <- programas_saude[[1]]$data_inicio
+} else if(programas_saude[[2]]$data_inicio > programas_saude[[1]]$data_inicio & 
+          programas_saude[[2]]$data_inicio > programas_saude[[3]]$data_inicio) {
+  inicio_mais_recente_nome <- programas_saude[[2]]$nome
+  inicio_mais_recente_data <- programas_saude[[2]]$data_inicio
+} else {
+  inicio_mais_recente_nome <- programas_saude[[3]]$nome
+  inicio_mais_recente_data <- programas_saude[[3]]$data_inicio
+}
+
+# Exibindo o resultado
+cat("Programa:", inicio_mais_recente_nome, "\n")
+cat("Data de início:", format(inicio_mais_recente_data, "%d/%m/%Y"), "\n")
+
+
+# RESUMO FINAL 
+cat("\n=== RESUMO GERAL DOS PROGRAMAS ===\n")
+cat("Data atual:", format(data_atual, "%d/%m/%Y"), "\n")
+cat("Total de programas:", length(programas_saude), "\n")
+cat("Orçamento total investido: R$", format(orcamento_total, 
+                                            big.mark = ".", 
+                                            decimal.mark = ","), "\n")
+
+
+
+
+
+# Exercicio 1 - Funções 
+
+
+# Criando o vetor com as notas dos alunos
+notas <- c(8.5, 7.0, 9.2, 6.8, 8.0, 7.5, 9.0, 5.5, 8.8, 7.2)
+
+# Exibindo as notas originais
+print("=== NOTAS ORIGINAIS ===")
+print(notas)
+cat("\n") 
+
+
+# ORGANIZAÇÃO DOS DADOS
+
+# Ordenando as notas em ordem crescente (menor para maior)
+notas_crescente <- sort(notas)
+print("=== NOTAS EM ORDEM CRESCENTE ===")
+print(notas_crescente)
+
+# Invertendo a ordem (maior para menor)
+notas_decrescente <- rev(notas_crescente)  # rev() inverte a ordem do vetor
+print("=== NOTAS EM ORDEM DECRESCENTE ===")
+print(notas_decrescente)
+
+cat("\n")
+
+
+# ESTATÍSTICA DESCRITIVA
+
+
+# Calculando a média 
+media_notas <- mean(notas)
+print(paste("Média das notas:", round(media_notas, 2)))
+
+# Encontrando a mediana 
+mediana_notas <- median(notas)
+print(paste("Mediana das notas:", mediana_notas))
+
+# Determinando a nota mais alta 
+nota_maxima <- max(notas)
+print(paste("Nota mais alta:", nota_maxima))
+
+# Determinando a nota mais baixa 
+nota_minima <- min(notas)
+print(paste("Nota mais baixa:", nota_minima))
+
+# Calculando o desvio padrão 
+desvio_padrao <- sd(notas)
+print(paste("Desvio padrão das notas:", round(desvio_padrao, 2)))
+
+cat("\n")
+
+
+# 4. FREQUÊNCIA DAS NOTAS
+if (!require("table1")) install.packages("table1")
+if (!require("tidyverse")) install.packages("tidyverse")
+
+# Criando tabela de frequências (quantas vezes cada nota aparece)
+tabela_frequencia <- table(notas)
+print("=== TABELA DE FREQUÊNCIA DAS NOTAS ===")
+print(tabela_frequencia)
+
+cat("\n")
+
+# RESUMO COMPLETO COM summary()
+
+
+# A função summary() fornece um resumo estatístico completo:
+# - Mínimo, 1º quartil, mediana, média, 3º quartil, máximo
+print("=== RESUMO COMPLETO COM summary() ===")
+print(summary(notas))
+
+
+# DESAFIO EXTRA
+
+
+# Criando um novo vetor com as notas arredondadas para 1 casa decimal
+# round(x, digits = 1) arredonda para 1 casa decimal
+notas_arredondadas <- round(notas, digits = 1)
+
+print("=== NOTAS ARREDONDADAS (1 casa decimal) ===")
+print(notas_arredondadas)
+
+# Calculando a média das notas arredondadas
+media_arredondada <- mean(notas_arredondadas)
+print(paste("Média das notas arredondadas:", round(media_arredondada, 2)))
+
+# Calculando a diferença entre as médias
+diferenca_medias <- media_arredondada - media_notas
+print(paste("Diferença entre médias (arredondada - original):", round(diferenca_medias, 4)))
+
+# Comparação das médias
+cat("\n=== COMPARAÇÃO DAS MÉDIAS ===\n")
+cat("Média original:", round(media_notas, 2), "\n")
+cat("Média arredondada:", round(media_arredondada, 2), "\n")
+
+# Verificando se as médias são iguais
+if(abs(diferenca_medias) < 0.0001) {
+  cat("As médias são praticamente iguais!\n")
+} else {
+  cat("As médias apresentam diferença de", round(abs(diferenca_medias), 4), "pontos\n")
+}
+
+# Exercicio 2-fUNÇÕES 
+# DATASET MTCARS
+
+# CARREGAR O CONJUNTO DE DADOS 
+
+data(mtcars)
+
+# Verificamos se o dataset foi carregado corretamente
+print("Dataset mtcars carregado com sucesso!")
+
+
+# A função str() 
+
+n_linhas <- nrow(mtcars)    
+n_colunas <- ncol(mtcars)   #
+
+# Exibe os resultados
+
+cat("\nNúmero de linhas (observações):", n_linhas, "\n")
+cat("Número de colunas (variáveis):", n_colunas, "\n\n")
+
+
+# VARIÁVEIS 
+
+resumo <- summary(mtcars)
+print(resumo)
+
+
+# Identificando variáveis numéricas e categóricas:
+cat("\nTipos das variáveis:\n")
+for (i in 1:ncol(mtcars)) {
+  cat(colnames(mtcars)[i], ":", class(mtcars[, i]), "\n")
+}
+
+# Selecionando a variável mpg (milhas por galão - consumo de combustível)
+mpg_dados <- mtcars$mpg   
+
+# Calculando as estatísticas descritivas
+media_mpg <- mean(mpg_dados)      
+mediana_mpg <- median(mpg_dados)  
+desvio_mpg <- sd(mpg_dados)       
+min_mpg <- min(mpg_dados)       
+max_mpg <- max(mpg_dados)         
+
+# Exibindo os resultados formatados
+cat("\n=== ESTATÍSTICAS DESCRITIVAS - MPG (Milhas por Galão) ===\n")
+cat("Média:", round(media_mpg, 2), "\n")
+cat("Mediana:", round(mediana_mpg, 2), "\n")
+cat("Desvio Padrão:", round(desvio_mpg, 2), "\n")
+cat("Mínimo:", min_mpg, "\n")
+cat("Máximo:", max_mpg, "\n\n")
+
+
+# Ordenando os  DADOS 
+
+# Selecionando a variável hp (horsepower - potência do motor)
+hp_dados <- mtcars$hp
+
+# Ordenando em ordem crescente (do menor para o maior)
+hp_crescente <- sort(hp_dados)  # sort() ordena os valores em ordem crescente
+
+# Exibe os primeiros 10 valores ordenados
+cat("=== POTÊNCIA (HP) ORDENADA CRESCENTE ===\n")
+print(head(hp_crescente, 10))
+cat("...\n\n")
+
+# Invertendo a ordem (do maior para o menor)
+# rev() inverte a ordem de qualquer vetor
+hp_decrescente <- rev(hp_crescente)
+
+cat("=== POTÊNCIA (HP) ORDENADA DECRESCENTE ===\n")
+print(head(hp_decrescente, 10))
+cat("...\n\n")
+
+
+#  SEQUÊNCIA DE NÚMEROS
+
+seq1 <- seq(from = 1, to = 10, by = 2)
+cat("Sequência de 1 a 10 com incremento de 2:\n")
+print(seq1)
+cat("\n")
+
+seq2 <- seq(from = 5, to = 15, by = 3)
+cat("Sequência de 5 a 15 com incremento de 3:\n")
+print(seq2)
+cat("\n")
+
+
+# REPETIR ELEMENTOS 
+
+# Vetor com o número 7 repetido 4 vezes
+vetor1 <- rep(x = 7, times = 4)
+cat("Número 7 repetido 4 vezes:\n")
+print(vetor1)
+cat("\n")
+
+# Vetor com a letra 'a' repetida 10 vezes
+vetor2 <- rep(x = 'a', times = 10)
+cat("Letra 'a' repetida 10 vezes:\n")
+print(vetor2)
+cat("\n")
+
+
+#  CONVERTER ENTRE MAIÚSCULAS E MINÚSCULAS 
+
+cyl_dados <- as.character(mtcars$cyl)  
+# Convertendo para maiúsculas
+cyl_maiusculo <- toupper(cyl_dados)   
+# Convertendo para minúsculas
+cyl_minusculo <- tolower(cyl_dados)   
+
+# Exibindo a comparação
+cat("=== CONVERSÃO DE CASES - CILINDROS ===\n")
+cat("Original (numérico):", mtcars$cyl[1:10], "\n")
+cat("Original (como texto):", cyl_dados[1:10], "\n")
+cat("Em maiúsculas:", cyl_maiusculo[1:10], "\n")
+cat("Em minúsculas:", cyl_minusculo[1:10], "\n\n")
+
+
+# Funções e operadores no R - parte 2
+# O operador pipe
+
+install.packages("magrittr")
+library(magrittr)
+
+
+# EXERCÍCIO 1 : ANÁLISE DE NASCIMENTOS COM OPERADOR PIPE (%>%)
+
+#  CARREGAR OS PACOTES N
+
+library(tidyverse)      
+library(microdatasus)   
+
+# Declarando UMA ÚNICA variável para todo o processo
+# Ano escolhido: 2022
+# UF escolhida: São Paulo
+
+resultado <- fetch_datasus(
+  year_start = 2022,           
+  year_end = 2022,
+  uf = "SP",                   
+  information_system = "SINASC"  
+) %>%
+  process_sinasc() %>%         
+  mutate(
+    # Extraindo o mês da data de nascimento
+    mes_nascimento = month(DTNASC),
+    # Criando nome do mês para melhor visualização
+    nome_mes = factor(
+      mes_nascimento,
+      levels = 1:12,
+      labels = c("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+                 "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro")
+    )
+  ) %>%
+  group_by(mes_nascimento, nome_mes) %>%  
+  summarise(
+    total_nascimentos = n(),              
+    .groups = "drop"                      
+  ) %>%
+  arrange(mes_nascimento)                
+
+
+# resultado
+print(resultado)
+
+install.packages("microdatasus")
+install.packages("devtools")
+
+# Criando um gráfico com os resultados (ainda usando pipe)
+
+install.packages(c("ggplot2", "dplyr", "tidyr", "readr", "purrr", "tibble"))
+
+resultado %>%
+  ggplot(aes(x = nome_mes, y = total_nascimentos, fill = nome_mes)) +
+  geom_col() +
+  labs(
+    title = "Média Mensal de Nascimentos - São Paulo (2022)",
+    x = "Mês",
+    y = "Total de Nascimentos",
+    caption = "Fonte: DATASUS/SINASC"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none"
+  )
+#Exercicio 2 funções de manipulação de strings e arquivos
+
+# CARREGAR PACOTES
+library(tidyverse)
+
+# CRIAR OS DADOS
+pacientes <- data.frame(
+  nome_completo = c("João da Silva", "Maria Souza Santos", 
+                    "Pedro Henrique Alves", "Ana Clara Oliveira"),
+  data_do_atendimento = c("2024-07-12", "2024-07-12", "2024-07-12", "2024-07-11"),
+  stringsAsFactors = FALSE
+)
+
+# SALVAR ARQUIVO ORIGINAL 
+write.csv(pacientes, "pacientes.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+# PROCESSAR COM PIPE ------------------------------------------------------
+dados_processados <- read.csv("pacientes.csv", stringsAsFactors = FALSE) %>%
+  mutate(
+    # Extrair primeiro nome usando str_extract (regex)
+    primeiro_nome = str_extract(nome_completo, "^[^ ]+"),
+    
+    # Extrair último nome usando str_extract (regex)
+    ultimo_nome = str_extract(nome_completo, "[^ ]+$"),
+    
+  )
+
+# SALVAR ARQUIVO PROCESSADO -----------------------------------------------
+write.csv(dados_processados, "nomes_pacientes.csv", row.names = FALSE, fileEncoding = "UTF-8")
+
+# VISUALIZAR RESULTADO ----------------------------------------------------
+print(dados_processados)
+
+#Continuar
